@@ -1,10 +1,11 @@
 import { Sparkles, useGLTF } from "@react-three/drei"
-import { GroupProps } from "@react-three/fiber"
+import type { GroupProps } from "@react-three/fiber"
+import type { GLTFResult } from "./Character"
 
 const Tree = (props: GroupProps) => {
   const { nodes, materials } = useGLTF(
     "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/tree-4-kaykit/model.gltf"
-  )
+  ) as GLTFResult
 
   return (
     <group {...props} dispose={null}>
@@ -21,7 +22,8 @@ const Tree = (props: GroupProps) => {
 const Rocks = (props: GroupProps) => {
   const { nodes } = useGLTF(
     "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/rocks-forrest/model.gltf"
-  )
+  ) as GLTFResult
+
   return (
     <group {...props} dispose={null}>
       <mesh

@@ -1,14 +1,15 @@
 import { useRef, useEffect } from "react"
 import { useGLTF, useAnimations } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
-import { Object3D } from "three"
+import type { Group } from "three"
+import type { GLTFResult } from "./Character"
 
 export const Wizard = () => {
-  const modelRef = useRef<Object3D>()
+  const modelRef = useRef<Group>(null)
   // model --> https://market.pmnd.rs/model/druid
   const { nodes, materials, animations } = useGLTF(
     "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/druid/model.gltf"
-  )
+  ) as GLTFResult
   const { actions } = useAnimations(animations, modelRef)
 
   useEffect(() => {
